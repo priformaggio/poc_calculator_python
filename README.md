@@ -1,6 +1,6 @@
 ## Setup your desired capabilities before running the tests
 
-### After download the project in the github https://github.com/priformaggio/poc_calculator_python, is necessary to setup the desired capabilities according to your emulator/device:
+After download the project in the github https://github.com/priformaggio/poc_calculator_python, is necessary to setup the desired capabilities according to your emulator/device:
 
 1. In the base_test.py file, update the informations about platformName, deviceName, app(PATH of your app), appPackage and appActivity.
 
@@ -23,7 +23,7 @@ Example:
   - Thinking that you have already configured the android on your machine and the emulator/device is launched, go to your project folder and input this command in your terminal:
 
 ```
-  adb install [apk name]
+  $ adb install [apk name]
 ```
 
   Example: adb install calculator.apk
@@ -33,19 +33,19 @@ Example:
   - Then you have to input this command in the terminal:
 
 ```
-adb shell  
+$ adb shell  
 ```
 
   - Then input this other command:
 
 ```
-  dumpsys
+  $ dumpsys
 ```
 
   - A log should be shown, look for 'mCurrentFocus' in the final of the log. You can try using:
 
   ```
-   dumpsys	window	windows	|	grep	-E 'mCurrentFocus'
+   $ dumpsys	window	windows	|	grep	-E 'mCurrentFocus'
   ```
 
   In this line, should be shown something like this example:com.maroyakasoft.dentak/ com.umadigital.dentak.MainActivity. Where the first part is the appPackage and the second part is the appActivity.
