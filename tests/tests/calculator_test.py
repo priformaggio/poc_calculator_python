@@ -20,7 +20,6 @@ class CalculatorTest(BaseTest):
     OITO = "8"
     NOVE = "9"
     DEZ = "10"
-
     KEYBOARD_ANIMATION_DELAY = 4
 
     def setUp(self):

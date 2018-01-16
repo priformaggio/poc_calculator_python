@@ -1,15 +1,9 @@
 import os
 from time import sleep
 from tests.pages.base_pages.base_page import BasePage
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select
+
 
 class CalculatorPage(BasePage):
-    """Triangulo page representation."""
 
     ID = "com.maroyakasoft.dentak:id/button_"
     MULT = "com.maroyakasoft.dentak:id/button_kakeru"
@@ -20,10 +14,7 @@ class CalculatorPage(BasePage):
     RESULT = "com.maroyakasoft.dentak:id/display"
     FORMULA = "com.maroyakasoft.dentak:id/textView_formula"
     CLEAR = "com.maroyakasoft.dentak:id/button_clear"
-
-
     KEYBOARD_ANIMATION_DELAY = 4
-
 
     def click_number(self, numero):
         self.driver.find_element_by_id(self.ID + numero).click()
