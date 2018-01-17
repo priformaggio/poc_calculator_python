@@ -1,4 +1,3 @@
 {
-  "tests/tests/calculator_test.py::CalculatorTest::test_click_got_it": true, 
-  "tests/tests/calculator_test.py::CalculatorTest::test_div": true
+  "tests/tests/calculator_test.py::CalculatorTest::test_click_got_it": true
 }

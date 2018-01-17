@@ -12,7 +12,7 @@ class BaseTest(unittest.TestCase):
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
         desired_caps['deviceName'] = 'Nexus'
-        desired_caps['app'] = '/home/priscila/poc_calculator/calculator.apk'
+        desired_caps['app'] = '/home/priscila/poc_calculator_python/calculator.apk'
         desired_caps['appPackage'] = 'com.maroyakasoft.dentak'
         desired_caps['appActivity'] = 'com.umadigital.dentak.MainActivity'
 

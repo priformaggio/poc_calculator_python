@@ -1,5 +1,3 @@
-import os
-from time import sleep
 from tests.pages.base_pages.base_page import BasePage
 
 
@@ -14,7 +12,7 @@ class CalculatorPage(BasePage):
     RESULT = "com.maroyakasoft.dentak:id/display"
     FORMULA = "com.maroyakasoft.dentak:id/textView_formula"
     CLEAR = "com.maroyakasoft.dentak:id/button_clear"
-    KEYBOARD_ANIMATION_DELAY = 4
+
 
     def click_number(self, numero):
         self.driver.find_element_by_id(self.ID + numero).click()
