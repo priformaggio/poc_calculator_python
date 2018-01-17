@@ -30,37 +30,41 @@ class CalculatorTest(BaseTest):
         self.calculator.click_mult()
         self.calculator.click_number(self.NOVE)
         self.calculator.click_equal()
-        element = self.driver.find_element_by_id("com.maroyakasoft.dentak:id/display").get_attribute("text")
+        element = self.driver.find_element_by_id(self.calculator.DISPLAY).get_attribute("text")
         self.driver.implicitly_wait(0.5)
         assert element == "81"
         self.calculator.click_clear()
+        self.driver.implicitly_wait(2)
 
     def test_sum(self):
         self.calculator.click_number(self.NOVE)
         self.calculator.click_sum()
         self.calculator.click_number(self.NOVE)
         self.calculator.click_equal()
-        element = self.driver.find_element_by_id("com.maroyakasoft.dentak:id/display").get_attribute("text")
+        element = self.driver.find_element_by_id(self.calculator.DISPLAY).get_attribute("text")
         self.driver.implicitly_wait(0.5)
         assert element == "18"
         self.calculator.click_clear()
+        self.driver.implicitly_wait(2)
 
     def test_sub(self):
         self.calculator.click_number(self.NOVE)
         self.calculator.click_sub()
         self.calculator.click_number(self.NOVE)
         self.calculator.click_equal()
-        element = self.driver.find_element_by_id("com.maroyakasoft.dentak:id/display").get_attribute("text")
+        element = self.driver.find_element_by_id(self.calculator.DISPLAY).get_attribute("text")
         self.driver.implicitly_wait(0.5)
         assert element == "0"
         self.calculator.click_clear()
+        self.driver.implicitly_wait(2)
 
     def test_div(self):
         self.calculator.click_number(self.NOVE)
         self.calculator.click_div()
         self.calculator.click_number(self.NOVE)
         self.calculator.click_equal()
-        element = self.driver.find_element_by_id("com.maroyakasoft.dentak:id/display").get_attribute("text")
+        element = self.driver.find_element_by_id(self.calculator.DISPLAY).get_attribute("text")
         self.driver.implicitly_wait(0.5)
         assert element == "1"
         self.calculator.click_clear()
+        self.driver.implicitly_wait(2)

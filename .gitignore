@@ -2,8 +2,10 @@
 bin/
 include/
 lib/
+local/
 pip-selfcheck.json
 requirements.txt
 selenium/
 wheelhouse/
-*.pyc
+.pyc
+.cache

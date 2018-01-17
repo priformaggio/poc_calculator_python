@@ -11,6 +11,7 @@ class CalculatorPage(BasePage):
     EQUAL = "com.maroyakasoft.dentak:id/button_ikoru"
     RESULT = "com.maroyakasoft.dentak:id/display"
     FORMULA = "com.maroyakasoft.dentak:id/textView_formula"
+    DISPLAY = "com.maroyakasoft.dentak:id/display"
     CLEAR = "com.maroyakasoft.dentak:id/button_clear"
 
 
