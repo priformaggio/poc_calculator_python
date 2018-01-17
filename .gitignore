@@ -10,3 +10,6 @@ wheelhouse/
 .pyc
 .cache
 /venv
+__init__.pyc
+/__pycache__
+calculator_page.pyc
