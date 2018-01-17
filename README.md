@@ -1,58 +1,55 @@
-## Setup your desired capabilities before running the tests
+# Getting Started
 
-After download the project in the github https://github.com/priformaggio/poc_calculator_python, is necessary to setup the desired capabilities according to your emulator/device:
+## Installing Python
 
-1. In the base_test.py file, update the informations about platformName, deviceName, app(PATH of your app), appPackage and appActivity.
+1. Windows
 
-```
-Example:
-
-    url = 'http://0.0.0.0:4723/wd/hub'
-    desired_caps = {}
-    desired_caps['platformName'] = 'Android'
-    desired_caps['deviceName'] = 'Nexus'
-    desired_caps['app'] = '/home/priscila/poc_calculator/calculator.apk'
-    desired_caps['appPackage'] = 'com.maroyakasoft.dentak'
-    desired_caps['appActivity'] = 'com.umadigital.dentak.MainActivity'
-
-    self.driver = webdriver.Remote(url, desired_caps)
-  ```
-
- 2. In case you have doubts how to get de appPackage and appActivity of your app, you can try:
-
-  - Thinking that you have already configured the android on your machine and the emulator/device is launched, go to your project folder and input this command in your terminal:
+- Download the latest version https://www.python.org/
+- By default, it will be installed at C:\Python36\, so that you can have multiple versions of Python on the same system without conflicts. Then, add this to your PATH:
 
 ```
-  $ adb install [apk name]
+C:\Python36\;C:\Python36\Scripts\
 ```
 
-  Example: adb install calculator.apk
+- Close the terminal and open again
+- Type ``` $python ``` on the terminal to see if this was installed with success. If the response is "command not found", the installation is not correct.
 
-  - Then you have to launch the activity from the app that you want to describe the appPackage and appActivity
 
-  - Then you have to input this command in the terminal:
+2. Linux
 
-```
-$ adb shell  
-```
-
-  - Then input this other command:
+- Open your terminal and type this command to update the system:
 
 ```
-  $ dumpsys
+$ sudo apt-get update
 ```
 
-  - A log should be shown, look for 'mCurrentFocus' in the final of the log. You can try using:
+- Then type this command to install python:
 
-  ```
-   $ dumpsys	window	windows	|	grep	-E 'mCurrentFocus'
-  ```
+```
+$ sudo apt-get install python
+```
 
-  In this line, should be shown something like this example:com.maroyakasoft.dentak/ com.umadigital.dentak.MainActivity. Where the first part is the appPackage and the second part is the appActivity.
+3. MAC Os
 
+- Before python, you have to install the homebrew:
 
+```
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
-## Getting Started - Installing Appium
+- Insert the homebrew directory to your PATH, in your ~/.profile file:
+
+```
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+```
+
+- Now, you can install Python:
+
+```
+$ brew install python
+```
+
+## Installing Appium
 
 ### Using the Appium GUI
 
@@ -76,6 +73,7 @@ $ adb shell
     ```
 
    You should get "1.4.16" as the output
+
 
 ## Set up the Appium Python environment
 
@@ -150,3 +148,55 @@ Certain desired capabilities must be set when running locally. Refer to [BaseTes
     ```
     $ py.test tests/
     ```
+
+## Setup your desired capabilities before running the tests
+
+After download the project in the github https://github.com/priformaggio/poc_calculator_python, is necessary to setup the desired capabilities according to your emulator/device:
+
+1. In the base_test.py file, update the informations about platformName, deviceName, app(PATH of your app), appPackage and appActivity.
+
+    ```
+    Example:
+
+        url = 'http://0.0.0.0:4723/wd/hub'
+        desired_caps = {}
+        desired_caps['platformName'] = 'Android'
+        desired_caps['deviceName'] = 'Nexus'
+        desired_caps['app'] = '/home/priscila/poc_calculator/calculator.apk'
+        desired_caps['appPackage'] = 'com.maroyakasoft.dentak'
+        desired_caps['appActivity'] = 'com.umadigital.dentak.MainActivity'
+
+        self.driver = webdriver.Remote(url, desired_caps)
+      ```
+
+2. In case you have doubts how to get de appPackage and appActivity of your app, you can try:
+
+      - Thinking that you have already configured the android on your machine and the emulator/device is launched, go to your project folder and input this command in your terminal:
+
+    ```
+      $ adb install [apk name]
+    ```
+
+      Example: adb install calculator.apk
+
+      - Then you have to launch the activity from the app that you want to describe the appPackage and appActivity
+
+      - Then you have to input this command in the terminal:
+
+    ```
+    $ adb shell  
+    ```
+
+      - Then input this other command:
+
+    ```
+      $ dumpsys
+    ```
+
+      - A log should be shown, look for 'mCurrentFocus' in the final of the log. You can try using:
+
+      ```
+       $ dumpsys	window	windows	|	grep	-E 'mCurrentFocus'
+      ```
+
+      In this line, should be shown something like this example:com.maroyakasoft.dentak/ com.umadigital.dentak.MainActivity. Where the first part is the appPackage and the second part is the appActivity.
