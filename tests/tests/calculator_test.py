@@ -88,20 +88,4 @@ class CalculatorTest(BaseTest):
         self.driver.implicitly_wait(2)
 
 
-    #if __name__ == "__main__":
-    #    HTMLTestRunner.main()
-
-    # output to a file
-    #fp = file('my_report.html', 'wb')
-    #runner = HTMLTestRunner.HTMLTestRunner(
-    #        stream=fp,
-    #        title='My unit test',
-    #        description='This demonstrates the report output by HTMLTestRunner.'
-    #        )
-
-    # Use an external stylesheet.
-    # See the Template_mixin class for more customizable options
-    #runner.STYLESHEET_TMPL = '<link rel="stylesheet" href="my_stylesheet.css" type="text/css">'
-
-    # run the test
-    #runner.run(my_test_suite)
+    

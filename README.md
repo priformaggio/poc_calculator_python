@@ -226,3 +226,5 @@ pytest test_mod.py::TestClass::test_method
 - Install pytest html: ``` pip install pytest-html ```
 
 - Run your test with: ``` pytest --html=report.html ```
+
+- For xml: ``` py.test tests/tests/calculator_test.py --junitxml=/home/priscila/poc_calculator_python\out_report.xml ```

@@ -7,9 +7,8 @@ pip-selfcheck.json
 requirements.txt
 selenium/
 wheelhouse/
-*.pyc
-*.cache
+/*.pyc
+/*.cache
+/__pycache__
+/assets
 /venv
-*__init__.pyc
-*/__pycache__
-*/assets

@@ -4,11 +4,16 @@ py.test --collect-only tests/
 
 read -rsp $'\nMake sure desired capabilities is empty.\n\tVerify your tests were collected, press any key to continue or CTRL+C to abort.\n' -n1 key
 
+
+
+
 ## Remove cached files
-find . -name '__pycache__' -type d -exec rm -r {} +
-find . -name '*.pyc' -exec rm -f {} +
-find . -name '*.pyo' -exec rm -f {} +
-find . -name '*~' -exec rm -f {} +
+#find . -name '__pycache__' -type d -exec rm -r {} +
+#find . -name '*.pyc' -exec rm -f {} +
+#find . -name '*.pyo' -exec rm -f {} +
+#find . -name '*~' -exec rm -f {} +
+
+find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
 ## Write installed packages to requirements.txt
 pip freeze > requirements.txt
