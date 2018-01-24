@@ -242,6 +242,10 @@ pytest test_mod.py::TestClass::test_method
 find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 ```
 
+Informations here: https://stackoverflow.com/questions/16869024/what-is-pycache
+
+https://stackoverflow.com/questions/5551269/ignore-file-pyc-in-git-repository
+
 - In your gitignore file, type these lines:
 ```
 .Python
