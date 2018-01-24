@@ -229,6 +229,8 @@ pytest test_mod.py::TestClass::test_method
 
 - For xml: ``` py.test tests/tests/calculator_test.py --junitxml=/home/priscila/poc_calculator_python\out_report.xml ```
 
+Examples here: https://pypi.python.org/pypi/pytest-html/
+
 
 ## Clean the _pycache_ and .pyc
 
