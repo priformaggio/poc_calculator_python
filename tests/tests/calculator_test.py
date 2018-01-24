@@ -1,6 +1,7 @@
 import os
-import unittest
 import time
+import unittest
+import pytest
 from appium import webdriver
 from base_tests.base_test import BaseTest
 from tests.pages import CalculatorPage
@@ -9,6 +10,7 @@ from tests.pages import CalculatorPage
 
 class CalculatorTest(BaseTest):
 
+    ZERO = "0"
     UM   = "1"
     DOIS = "2"
     TRES = "3"
@@ -58,6 +60,7 @@ class CalculatorTest(BaseTest):
         self.calculator.click_clear()
         self.driver.implicitly_wait(2)
 
+    @pytest.mark.lala
     def test_div(self):
         self.calculator.click_number(self.NOVE)
         self.calculator.click_div()
@@ -68,3 +71,37 @@ class CalculatorTest(BaseTest):
         assert element == "1"
         self.calculator.click_clear()
         self.driver.implicitly_wait(2)
+
+
+    def test_sub_percent(self):
+        self.calculator.click_number(self.UM)
+        self.calculator.click_number(self.ZERO)
+        self.calculator.click_number(self.ZERO)
+        self.calculator.click_sub()
+        self.calculator.click_number(self.NOVE)
+        self.calculator.click_percent()
+        self.calculator.click_equal()
+        element = self.driver.find_element_by_id(self.calculator.DISPLAY).get_attribute("text")
+        self.driver.implicitly_wait(0.5)
+        assert element == "91"
+        self.calculator.click_clear()
+        self.driver.implicitly_wait(2)
+
+
+    #if __name__ == "__main__":
+    #    HTMLTestRunner.main()
+
+    # output to a file
+    #fp = file('my_report.html', 'wb')
+    #runner = HTMLTestRunner.HTMLTestRunner(
+    #        stream=fp,
+    #        title='My unit test',
+    #        description='This demonstrates the report output by HTMLTestRunner.'
+    #        )
+
+    # Use an external stylesheet.
+    # See the Template_mixin class for more customizable options
+    #runner.STYLESHEET_TMPL = '<link rel="stylesheet" href="my_stylesheet.css" type="text/css">'
+
+    # run the test
+    #runner.run(my_test_suite)

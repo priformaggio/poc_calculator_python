@@ -1,5 +1,59 @@
 # Getting Started
 
+## Setup your desired capabilities before running the tests
+
+After download the project in the github https://github.com/priformaggio/poc_calculator_python, is necessary to setup the desired capabilities according to your emulator/device:
+
+1. In the base_test.py file, update the informations about platformName, deviceName, app(PATH of your app), appPackage and appActivity.
+
+    ```
+    Example:
+
+        url = 'http://0.0.0.0:4723/wd/hub'
+        desired_caps = {}
+        desired_caps['platformName'] = 'Android'
+        desired_caps['deviceName'] = 'Nexus'
+        desired_caps['app'] = '/home/priscila/poc_calculator/calculator.apk'
+        desired_caps['appPackage'] = 'com.maroyakasoft.dentak'
+        desired_caps['appActivity'] = 'com.umadigital.dentak.MainActivity'
+
+        self.driver = webdriver.Remote(url, desired_caps)
+      ```
+
+2. In case you have doubts how to get de appPackage and appActivity of your app, you can try:
+
+      - Thinking that you have already configured the android on your machine and the emulator/device is launched, go to your project folder and input this command in your terminal:
+
+    ```
+      $ adb install [apk name]
+    ```
+
+      Example: adb install calculator.apk
+
+      - Then you have to launch the activity from the app that you want to describe the appPackage and appActivity
+
+      - Then you have to input this command in the terminal:
+
+    ```
+    $ adb shell  
+    ```
+
+      - Then input this other command:
+
+    ```
+      $ dumpsys
+    ```
+
+      - A log should be shown, look for 'mCurrentFocus' in the final of the log. You can try using:
+
+      ```
+       $ dumpsys	window	windows	|	grep	-E 'mCurrentFocus'
+      ```
+
+      In this line, should be shown something like this example:com.maroyakasoft.dentak/ com.umadigital.dentak.MainActivity. Where the first part is the appPackage and the second part is the appActivity.
+
+
+
 ## Installing Python
 
 1. Windows
@@ -148,55 +202,27 @@ Certain desired capabilities must be set when running locally. Refer to [BaseTes
     ```
     $ py.test tests/
     ```
+5. In case you want to run only a scenario, with a tag, type this command:
 
-## Setup your desired capabilities before running the tests
+```
+$ py.test -m lala
+```
+Where "lala" is the example of the tag name. But in the scenario/test must be written in this way:
 
-After download the project in the github https://github.com/priformaggio/poc_calculator_python, is necessary to setup the desired capabilities according to your emulator/device:
+```
+@pytest.mark.lala
+```
 
-1. In the base_test.py file, update the informations about platformName, deviceName, app(PATH of your app), appPackage and appActivity.
+6. In case you want to run by a method:
 
-    ```
-    Example:
+```
+pytest test_mod.py::TestClass::test_method
+```
 
-        url = 'http://0.0.0.0:4723/wd/hub'
-        desired_caps = {}
-        desired_caps['platformName'] = 'Android'
-        desired_caps['deviceName'] = 'Nexus'
-        desired_caps['app'] = '/home/priscila/poc_calculator/calculator.apk'
-        desired_caps['appPackage'] = 'com.maroyakasoft.dentak'
-        desired_caps['appActivity'] = 'com.umadigital.dentak.MainActivity'
+- Other examples could be possible to see in this link: https://docs.pytest.org/en/latest/usage.html
 
-        self.driver = webdriver.Remote(url, desired_caps)
-      ```
+7. Create your report_html
 
-2. In case you have doubts how to get de appPackage and appActivity of your app, you can try:
+- Install pytest html: ``` pip install pytest-html ```
 
-      - Thinking that you have already configured the android on your machine and the emulator/device is launched, go to your project folder and input this command in your terminal:
-
-    ```
-      $ adb install [apk name]
-    ```
-
-      Example: adb install calculator.apk
-
-      - Then you have to launch the activity from the app that you want to describe the appPackage and appActivity
-
-      - Then you have to input this command in the terminal:
-
-    ```
-    $ adb shell  
-    ```
-
-      - Then input this other command:
-
-    ```
-      $ dumpsys
-    ```
-
-      - A log should be shown, look for 'mCurrentFocus' in the final of the log. You can try using:
-
-      ```
-       $ dumpsys	window	windows	|	grep	-E 'mCurrentFocus'
-      ```
-
-      In this line, should be shown something like this example:com.maroyakasoft.dentak/ com.umadigital.dentak.MainActivity. Where the first part is the appPackage and the second part is the appActivity.
+- Run your test with: ``` pytest --html=report.html ```

@@ -13,6 +13,7 @@ class CalculatorPage(BasePage):
     FORMULA = "com.maroyakasoft.dentak:id/textView_formula"
     DISPLAY = "com.maroyakasoft.dentak:id/display"
     CLEAR = "com.maroyakasoft.dentak:id/button_clear"
+    PERCENT = "com.maroyakasoft.dentak:id/button_percent"
 
 
     def click_number(self, numero):
@@ -35,3 +36,6 @@ class CalculatorPage(BasePage):
 
     def click_clear(self):
         self.driver.find_element_by_id(self.CLEAR).click()
+    
+    def click_percent(self):
+        self.driver.find_element_by_id(self.PERCENT).click()

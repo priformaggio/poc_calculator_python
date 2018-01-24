@@ -1,7 +1,7 @@
 import os
 import unittest
 from appium import webdriver
-from tests.pages import CalculatorPage
+
 
 
 class BaseTest(unittest.TestCase):
