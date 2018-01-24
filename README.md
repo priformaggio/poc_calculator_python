@@ -228,3 +228,34 @@ pytest test_mod.py::TestClass::test_method
 - Run your test with: ``` pytest --html=report.html ```
 
 - For xml: ``` py.test tests/tests/calculator_test.py --junitxml=/home/priscila/poc_calculator_python\out_report.xml ```
+
+
+## Clean the _pycache_ and .pyc
+
+- When you run a program in python, the interpreter compiles it to bytecode first (this is an oversimplification) and stores it in the __pycache__ folder. If you look in there you will find a bunch of files sharing the names of the .py files in your project's folder, only their extensions will be either .pyc or .pyo. These are bytecode-compiled and optimized bytecode-compiled versions of your program's files, respectively.
+
+- As a programmer, you can largely just ignore it... All it does is make your program start a little faster. When your scripts change, they will be recompiled, and if you delete the files or the whole folder and run your program again, they will reappear (unless you specifically suppress that behavior)
+
+- In case you want to delete before run the test or commit, type this command manually in your terminal:
+
+```
+find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+```
+
+- In your gitignore file, type these lines:
+```
+.Python
+bin/
+include/
+lib/
+local/
+pip-selfcheck.json
+requirements.txt
+selenium/
+wheelhouse/
+*.pyc
+*.cache
+/__pycache__
+/assets
+/venv
+```
